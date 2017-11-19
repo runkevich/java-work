@@ -6,13 +6,13 @@ import java.util.Arrays;
 public class Main {
 
 
-    public static ArrayList<Float> el = new ArrayList<Float>();      //чисто для сохранения элементов которые уже были проверены
+    public static ArrayList<Float> el = new ArrayList<Float>();
     public static void main (String[] args) {
-        float[] array = {1, 2, 3, 5, 3, 8, 8, 1, 3, 2};           //пример массива
-        float element = 0;                                                                             //сохраняем элемент для вывода
+        float[] array = {1, 2, 3, 5, 3, 8, 8, 1, 3, 2};
+        float element = 0;
         int count = 0;
-        //сохоаняем колличество совпадений для вывода
-        for (int i = 0; i < array.length; i++) {                                                  //тут считаем элемены
+
+        for (int i = 0; i < array.length; i++) {
             if (c_element(array[i])) {
                 for (int j = 0; j < array.length; j ++) {
                     if (array[i] == array[j]) {
@@ -22,11 +22,11 @@ public class Main {
                     }
                 }
             }
-            if (count > 1) System.out.println("[" + element + "]"+ " - повторений "+ count);  //если совпадений больше 1 то выводим на экран
-            count = 0;                                                                                    //тут сбрасываем счетчик
+            if (count > 1) System.out.println("[" + element + "]"+ " - повторений "+ count);
+            count = 0;
         }
     }
-    private static boolean c_element (float arr_i) {               //тут бует проверка элемента, считали ли мы его?
+    private static boolean c_element (float arr_i) {               
         for (int k = 0; k < el.size(); k++) {
             if (arr_i == el.get(k)) return false;
         }
