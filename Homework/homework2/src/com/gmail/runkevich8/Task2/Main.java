@@ -26,7 +26,7 @@ public class Main {
             count = 0;
         }
     }
-    private static boolean c_element (float arr_i) {               
+    private static boolean c_element (float arr_i) {
         for (int k = 0; k < el.size(); k++) {
             if (arr_i == el.get(k)) return false;
         }
