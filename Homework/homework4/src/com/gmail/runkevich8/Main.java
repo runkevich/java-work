@@ -28,7 +28,7 @@ public class Main {
         Patient[] patientsArray = {patient1, patient2, patient3};
 
 
-        for (Patient patient : patientsArray){
+        for (Patient patient : patientsArray) {
             printPatient(patient);
         }
 
@@ -36,8 +36,8 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int i = in.nextInt();
 
-        switch (i){
-            case 1 :
+        switch (i) {
+            case 1:
                 findFIO(patientsArray);
                 break;
             case 2:
@@ -70,7 +70,7 @@ public class Main {
         String t = bufferedReader.readLine();
         for (int i = 0; i < patientsArray.length; i++)
             if (patientsArray[i].getFIO().toUpperCase().contains(t.toUpperCase())) {
-            printPatient(patientsArray[i]);
+                printPatient(patientsArray[i]);
             }
     }
 
