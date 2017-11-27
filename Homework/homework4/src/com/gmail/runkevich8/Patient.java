@@ -1,12 +1,12 @@
 package com.gmail.runkevich8;
 
-public class Student {
+public class Patient {
 
     private String FIO ;
     private int age;
     boolean diagnosis=false;
 
-//    public Student(String FIO, int age, boolean diagnosis) {
+//    public Patient(String FIO, int age, boolean diagnosis) {
 //        this.FIO = FIO;
 //        this.age = age;
 //        this.diagnosis = diagnosis;
