@@ -61,8 +61,8 @@ public class ATM {
             System.out.println("100 - " + countMoney / 100);
         }
         if ((countMoney % 100) % 50 == 0) {
-            countFifty--;
-            System.out.println("50 - " + 1);
+            countFifty+=(countMoney%100)%50;
+            System.out.println("50 - " + countFifty);
         }
         if ((countMoney % 100) % 20 == 0) {
             countTwenty -= (countMoney % 100) / 20;
