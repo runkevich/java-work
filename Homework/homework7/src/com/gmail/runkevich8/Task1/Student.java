@@ -7,6 +7,14 @@ public class Student {
     private String name;
     private String surname;
 
+    public Student(String name, String surname, Date bd) {
+        this.name = name;
+        this.surname = surname;
+        this.bd = bd;
+    }
+
+    private Date bd;
+
     public Date getBd() {
         return bd;
     }
@@ -14,8 +22,6 @@ public class Student {
     public void setBd(Date bd) {
         this.bd = bd;
     }
-
-    private Date bd;
 
     public String getName() {
         return name;
@@ -33,7 +39,17 @@ public class Student {
         this.surname = surname;
     }
 
-
+//    @Override
+//    public String toString() {
+//        StringBuilder builder= new StringBuilder();
+//        builder.append("First Name ");
+//        builder.append(name);
+//        builder.append(" Last Name");
+//        builder.append(", Date of birthday: ");
+//        builder.append(bd);
+//
+//        return builder.toString();
+//    }
 
 
 
