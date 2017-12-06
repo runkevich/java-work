@@ -17,10 +17,10 @@ public class Main {
             writer.append('\n');
             writer.append('7');
             writer.flush();
-        } catch (IOException ex)
+        } catch (IOException e)
 
         {
-            System.out.println(ex.getMessage());
+            System.out.println(e.getMessage());
         }
 
         try (FileReader reader = new FileReader("D:\\Учеба-курсы\\notes3.txt")) {
@@ -30,9 +30,9 @@ public class Main {
 
                 System.out.print((char) c);
             }
-        } catch (IOException ex) {
+        } catch (IOException e) {
 
-            System.out.println(ex.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
