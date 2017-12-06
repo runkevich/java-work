@@ -12,18 +12,16 @@ public class Main {
                 FileWriter writer = new FileWriter("D:\\Учеба-курсы\\notes3.txt", false))
 
         {
-
-            String text = "Мама мыла раму, раму мыла мама";
+            String text = "Доиашнее задание - №";
             writer.write(text);
             writer.append('\n');
-            writer.append('E');
+            writer.append('7');
             writer.flush();
         } catch (IOException ex)
 
         {
             System.out.println(ex.getMessage());
         }
-
 
         try (FileReader reader = new FileReader("D:\\Учеба-курсы\\notes3.txt")) {
 
