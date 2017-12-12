@@ -11,6 +11,7 @@ public class Main {
         try (
                 FileWriter writer = new FileWriter("D:\\Учеба-курсы\\notes3.txt", false))
 
+
         {
             String text = "Доиашнее задание - №";
             writer.write(text);
@@ -23,7 +24,8 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        try (FileReader reader = new FileReader("D:\\Учеба-курсы\\notes3.txt")) {
+        try (FileReader reader = new FileReader("D:\\Учеба-курсы\\notes3.txt"))
+        {
 
             int c;
             while ((c = reader.read()) != -1) {
