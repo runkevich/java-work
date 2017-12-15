@@ -10,17 +10,16 @@ public class Main {
 
         List<String> array = new ArrayList<>();
 
-        boolean i = true;
+        //Вводим данные в массив
         while (true){
 
             System.out.println("Вводите любые данные:");
-
             Scanner in = new Scanner(System.in);
             String line = in.nextLine();
             if (line.equals("stop")){
                 System.out.println(array);
+                //метод сортировки полученного массивы и вывод его на экран
                 fix(array);
-
                 return;
             }
             array.add(line);
