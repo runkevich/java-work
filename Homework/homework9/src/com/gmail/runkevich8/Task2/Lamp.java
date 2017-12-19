@@ -1,6 +1,6 @@
 package com.gmail.runkevich8.Task2;
 
-public class Lamp{
+public class Lamp  {
 
         //уровень освещенности
         private int light;

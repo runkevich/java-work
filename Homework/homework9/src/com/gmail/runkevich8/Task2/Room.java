@@ -62,32 +62,32 @@ public class Room {
         this.freeSq = freeSq;
     }
 
-//    private void addLamp(Lamp lamp) throws Exception{
-//        if (){
-//            throw new Exception();//Exception2();
-//            return;
-//        }
-//        lampList.add(lamp);
-//    }
-
-//    private void addFurniture(Furniture furniture) throws Exception{
-//        if () {
-//            throw new Exception();//Exception1();
-//            return;
-//        }
-//
-//        furnitureList.add(furniture);
-//
-//    }
-    public void addLamp(int light) {
-
-        lampList.add(new Lamp(light));
+    private void addLamp(Lamp lamp) throws Exception{
+        if (){
+            throw new Exception();//Exception2();
+            return;
+        }
+        lampList.add(lamp);
     }
 
-    public void addFurniture(Furniture furniture) {
+    private void addFurniture(Furniture furniture) throws Exception{
+        if () {
+            throw new Exception();//Exception1();
+            return;
+        }
 
         furnitureList.add(furniture);
+
     }
+//    public void addLamp(int light) {
+//
+//        lampList.add(new Lamp(light));
+//    }
+//
+//    public void addFurniture(Furniture furniture) {
+//
+//        furnitureList.add(furniture);
+//    }
     public List<Furniture> getFurnitures() {
         return furnitureList;
     }
