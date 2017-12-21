@@ -1,6 +1,6 @@
 package com.gmail.runkevich8.Task2;
 
-public class Lamp  {
+public class Lamp {
 
         //уровень освещенности
         private int light;
@@ -13,8 +13,9 @@ public class Lamp  {
             return light;
         }
 
-        public void setLight(int light) {
+    public void setLight(int light) {
             this.light = light;
         }
+
 
 }

@@ -1,17 +1,13 @@
 package com.gmail.runkevich8.Task2;
 
 
-import jdk.internal.joptsimple.internal.Rows;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Build {
     private final String name;
     private List<Room> roomList = new ArrayList<>();
-  //  private String nameRoom;
-   // private int numberWindows = 0;
-  //  private double sq;
+
 
     public Build(String name) {
         this.name = name;
@@ -26,11 +22,14 @@ public class Build {
     }
     
 
-    public void addRoom(String nameRoom, double s, int windows) {
-        roomList.add(new Room(nameRoom, s, windows));
+    public void addRoom(String nameRoom, double sq, int windows) {
+        roomList.add(new Room(nameRoom,sq,windows));
     }
 
-    public List<Room> getRoomList(String nameRoom) {
+    public List<Room> getRoomList() {
         return roomList;
     }
+
+
+
 }

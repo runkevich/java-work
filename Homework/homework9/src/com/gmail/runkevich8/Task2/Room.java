@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
-    private static final int maxPercent = 70;
 
     //площаадь комнаты
     private double sq;
-    private double freeSq;
     private String nameRoom;
 
     private int numberWindows = 0;
 
     private List<Lamp> lampList = new ArrayList<>();
     private List<Furniture>  furnitureList = new ArrayList<>();
+
 
     public Room(String nameRoom, double sq, int numberWindows) {
         this.sq = sq;
@@ -54,42 +53,22 @@ public class Room {
         this.sq = sq;
     }
 
-    public double getFreeSq() {
-        return freeSq;
-    }
 
-    public void setFreeSq(double freeSq) {
-        this.freeSq = freeSq;
-    }
-
-    private void addLamp(Lamp lamp) throws Exception{
-        if (){
-            throw new Exception();//Exception2();
-            return;
-        }
+    private void addLp(Lamp lamp) throws Exception{
         lampList.add(lamp);
     }
 
-    private void addFurniture(Furniture furniture) throws Exception{
-        if () {
-            throw new Exception();//Exception1();
-            return;
-        }
+    public void addFurniture(Furniture furniture) throws Exception{
 
         furnitureList.add(furniture);
 
     }
-//    public void addLamp(int light) {
-//
-//        lampList.add(new Lamp(light));
-//    }
-//
-//    public void addFurniture(Furniture furniture) {
-//
-//        furnitureList.add(furniture);
-//    }
+
     public List<Furniture> getFurnitures() {
         return furnitureList;
     }
 
+    public void addLamp(int i) {
+        lampList.add(new Lamp(i));
+    }
 }
