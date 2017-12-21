@@ -78,7 +78,7 @@ public class MySaxParser extends DefaultHandler{
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
 
-        if(thisElement.equalsIgnoreCase("name") && curName==true){
+        if(thisElement.equalsIgnoreCase("name") && curName){
             nameL.setName(new String(ch,start,length));
         }
         if (thisElement.equals("element")) {
@@ -98,7 +98,7 @@ public class MySaxParser extends DefaultHandler{
 
         }
 
-        if (thisElement.equalsIgnoreCase("name") && curName==false) {
+        if (thisElement.equalsIgnoreCase("name") && !curName) {
             peopleTmp.setName1(new String(ch,start,length));
 
         }
