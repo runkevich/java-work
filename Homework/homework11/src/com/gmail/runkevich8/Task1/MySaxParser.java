@@ -8,7 +8,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +15,20 @@ public class MySaxParser extends DefaultHandler{
 
     List<People> peopleL;
     String peopleXmlFileName;
-    String tmpValue;
     People peopleTmp;
+    private String thisElement;
+    Root nameL = new Root();
+    boolean curName = true;
+
 
     public MySaxParser(String peopleXmlFileName) {
         this.peopleXmlFileName = peopleXmlFileName;
         peopleL = new ArrayList<>();
         parseDocument();
-        printDatas();
+        printData();
     }
     private void parseDocument() {
-        // parse
+
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser parser = factory.newSAXParser();
@@ -39,48 +41,78 @@ public class MySaxParser extends DefaultHandler{
             System.out.println("Невозможно открыть xml error = " + e.toString());
         }
     }
-    private void printDatas() {
+    private void printData() {
 
-        for (People tmpB : peopleL) {
-            System.out.println(tmpB.toString());
+        System.out.println(nameL);
+        for (People tmpP : peopleL) {
+            System.out.println(tmpP.toString());
         }
     }
-    @Override
-    public void startElement(String s, String s1, String elementName, Attributes attributes) throws SAXException {
 
-        if (elementName.equalsIgnoreCase("element")) {
+
+
+    @Override
+    public void startDocument() throws SAXException {
+        System.out.println("Start parse XML...");
+    }
+
+    @Override
+    public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+        thisElement = qName;
+        if (qName.equalsIgnoreCase("people")) {
+            curName = false;
+        }
+
+        if (qName.equalsIgnoreCase("element")) {
             peopleTmp = new People();
         }
 
+
     }
+
     @Override
-    public void endElement(String s, String s1, String element) throws SAXException {
-        // if end of book element add to list
-        if (element.equals("element")) {
+    public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+        thisElement = "";
+    }
+
+    @Override
+    public void characters(char[] ch, int start, int length) throws SAXException {
+
+        if(thisElement.equalsIgnoreCase("name") && curName==true){
+            nameL.setName(new String(ch,start,length));
+        }
+        if (thisElement.equals("element")) {
             peopleL.add(peopleTmp);
-       }
-        if(element.equalsIgnoreCase("age")){
-            peopleTmp.setAge(tmpValue);
-
-        }
-        if (element.equalsIgnoreCase("id")) {
-            peopleTmp.setId(tmpValue);
-
         }
 
-        if(element.equalsIgnoreCase("isDegree")){
-            peopleTmp.setDegree(tmpValue);
+        if(thisElement.equalsIgnoreCase("age")){
+           peopleTmp.setAge(String.valueOf(new String(ch,start,length)));
+
         }
-        if (element.equalsIgnoreCase("name")) {
-            peopleTmp.setName(tmpValue);
+        if (thisElement.equalsIgnoreCase("id")) {
+            peopleTmp.setId(new String(ch,start,length));
+
         }
-        if(element.equalsIgnoreCase("surname")){
-            peopleTmp.setSurname(tmpValue);
+        if (thisElement.equalsIgnoreCase("isDegree")) {
+            peopleTmp.setDegree(new String(ch,start,length));
+
         }
+
+        if (thisElement.equalsIgnoreCase("name") && curName==false) {
+            peopleTmp.setName1(new String(ch,start,length));
+
+        }
+        if (thisElement.equalsIgnoreCase("surname")) {
+            peopleTmp.setSurname(new String(ch,start,length));
+
+        }
+
     }
+
     @Override
-    public void characters(char[] ac, int i, int j) throws SAXException {
-        tmpValue = new String(ac, i, j);
+    public void endDocument() {
+        System.out.println("Stop parse XML...");
     }
 
 }
+

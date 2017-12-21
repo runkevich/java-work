@@ -4,17 +4,17 @@ public class People {
     private String id;
     private String age;
     private String isDegree;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    private String name;
+    private String name1;
     private String surname;
+
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name) {
+        this.name1 = name;
+    }
 
     public String getId() {
         return id;
@@ -53,20 +53,11 @@ public class People {
 
         if (id != people.id) return false;
         if (age != people.age) return false;
-        if (isDegree != people.isDegree) return false;
-        if (name != null ? !name.equals(people.name) : people.name != null) return false;
+        if (isDegree != people.isDegree) return false;if (name1 != null ? !name1.equals(people.name1) : people.name1 != null) return false;
         return surname != null ? surname.equals(people.surname) : people.surname == null;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + age;
-//        result = 31 * result + (isDegree ? 1 : 0);
-//        result = 31 * result + (name != null ? name.hashCode() : 0);
-//        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-//        return result;
-//    }
+
 
     @Override
     public String toString() {
@@ -74,7 +65,7 @@ public class People {
                 "id=" + id +
                 ", age=" + age +
                 ", isDegree=" + isDegree +
-                ", name=" + name  +
+                ", name=" + name1  +
                 ", surname=" + surname;
     }
 }
