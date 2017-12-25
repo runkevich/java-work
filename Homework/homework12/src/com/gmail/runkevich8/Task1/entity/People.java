@@ -2,7 +2,6 @@ package com.gmail.runkevich8.Task1.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.google.gson.annotations.SerializedName;
 
 public class People {
 
@@ -13,7 +12,7 @@ public class People {
     private boolean isDegree;
 
     @JsonProperty("name")
-    private String firstName; // переименовка для  GSON
+    private String firstName; // переименовка
 
     private String surname;
 
