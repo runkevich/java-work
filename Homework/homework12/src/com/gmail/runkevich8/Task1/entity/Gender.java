@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public enum Gender {
     @JsonProperty("0")   // приходит из файла
             M,
-    @JsonProperty("1") //   @SerializedName("1")
+    @JsonProperty("1")
             W
 
 }
