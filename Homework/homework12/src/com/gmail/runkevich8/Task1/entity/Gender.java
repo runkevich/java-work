@@ -1,12 +1,12 @@
 package com.gmail.runkevich8.Task1.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public enum Gender {
-    @SerializedName("0") // приходит из файла
+    @JsonProperty("0")   // приходит из файла
             M,
-
-    @SerializedName("1")
+    @JsonProperty("1") //   @SerializedName("1")
             W
 
 }
