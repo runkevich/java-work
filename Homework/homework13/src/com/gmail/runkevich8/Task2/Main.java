@@ -12,16 +12,14 @@ public class Main {
         String text = scanner.nextLine();
 
 
-        Pattern pattern = Pattern.compile("^[A-Za-z]+\\.xml$");
+       Pattern pattern = Pattern.compile("^([A-Za-z0-9]+)\\.([a-z]+)$");
         Matcher matcher = pattern.matcher(text);
 
-
-        if (matcher.matches()){
-            System.out.println("xml");
-        } else {
-            System.out.println("Формат не xml");
+        if (matcher.find()) {
+            System.out.println(matcher.group(2));
+        }else {
+            System.out.println("Выбран не верный формат");
         }
-
-
     }
 }
+
