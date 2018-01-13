@@ -1,7 +1,7 @@
 package com.gmail.runkevich8.TaskControl;
 
 import com.gmail.runkevich8.TaskControl.entity.MyFiles;
-import org.w3c.dom.Attr;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class Manager {
 
-    File fileFinal = new File("D:\\file.xml");
+
     private static ArrayList<MyFiles> myFiles = new ArrayList<>();
 
     public void loadData(String link) throws IOException {
@@ -53,6 +53,7 @@ public class Manager {
             String name = s.getName();
             long size = s.getTotalSpace();
             String pathName = s.getPath();
+
             System.out.println(name);
             System.out.println(size);
             System.out.println(creationTime);
@@ -66,41 +67,33 @@ public class Manager {
 
             myFiles.add(listMyFiles);
 
-
             // root elements
-
             Element staff = doc.createElement("file");
             rootElement1.appendChild(staff);
 
-            Attr attr = doc.createAttribute("name");
-            attr.setValue(name);
-            staff.setAttributeNode(attr);
+            Element nameF = doc.createElement("name");
+            nameF.setTextContent(name);
+            staff.appendChild(nameF);
+            // elements
+            Element pathF = doc.createElement("path");
+            pathF.setTextContent(pathName);
+            staff.appendChild(pathF);
 
-            // firstname elements
-            Element firstname = doc.createElement("path");
-            firstname.setTextContent(pathName);
-            staff.appendChild(firstname);
+            // elements
+            Element sizeF = doc.createElement("size");
+            sizeF.setTextContent(String.valueOf(size));
+            staff.appendChild(sizeF);
 
-            // nickname elements
-            Element nickname = doc.createElement("size");
-            nickname.setTextContent(String.valueOf(size));
-            staff.appendChild(nickname);
-
-
-            // salary elements
-            Element salary = doc.createElement("datetime");
-            salary.setTextContent(String.valueOf(creationTime));
-            staff.appendChild(salary);
-
+            // elements
+            Element dateF = doc.createElement("datetime");
+            dateF.setTextContent(String.valueOf(creationTime));
+            staff.appendChild(dateF);
 
             System.out.println("File saved!");
-
-
         }
 
-
         try {
-        // write the content into xml file
+
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
