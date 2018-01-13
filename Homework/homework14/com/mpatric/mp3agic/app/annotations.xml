@@ -1,0 +1,5 @@
+<root>
+    <item name='com.mpatric.mp3agic.app.Mp3Catalog'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
