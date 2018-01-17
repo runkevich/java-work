@@ -3,10 +3,11 @@ package com.gmail.runkevich8.Task1;
 
 public class ParsingThread extends Thread {
 
-    private DownloadThread downloadThread;
 
-    public void setDownloadThread(DownloadThread downloadThread) {
-        this.downloadThread = downloadThread;
+    private Object object;
+
+    public void setObject(Object object) {
+        this.object = object;
     }
 
     @Override
@@ -15,10 +16,13 @@ public class ParsingThread extends Thread {
         System.out.println("sleep parse");
 
         try {
-            //wait();
-            Thread.sleep(1000);
+            synchronized (object) {
+                object.wait();
+            }
+
         } catch (InterruptedException e) {
         }
+
         //wake up
 
         System.out.println("json parsing");
@@ -26,15 +30,19 @@ public class ParsingThread extends Thread {
 
 
         System.out.println("ping download from parsing");
-        synchronized (downloadThread){
-            downloadThread.notify();
+        synchronized (object) {
+            object.notify();
         }
 
         //а сами засыпаем пока нас не разбудит downloadThread
         System.out.println("wait parsing");
+
+
         try {
-            Thread.sleep(1000);
-           // wait();
+            synchronized (object) {
+                // Thread.sleep(1000);
+                object.wait();
+            }
         } catch (InterruptedException e) {
         }
 
