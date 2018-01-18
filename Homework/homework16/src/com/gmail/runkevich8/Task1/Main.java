@@ -11,7 +11,7 @@ public class Main {
 
         parsingThread.setObject(object);
         downloadThread.setObject(object);
-        
+
 
         parsingThread.start();
         downloadThread.start();
