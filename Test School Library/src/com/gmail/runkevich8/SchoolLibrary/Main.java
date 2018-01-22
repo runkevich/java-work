@@ -36,7 +36,15 @@ public class Main {
         pupilsList2.add(new Pupils("Катя",format.parse("1996-02-08"),3 ));
         pupilsList2.add(new Pupils("Лола",format.parse("1995-02-08"),1 ));
         pupilsList2.add(new Pupils("Оля",format.parse("1999-12-10"),0));
+        Integer aa =null;
+        try{
+            int a = 10/0;
+        }catch (Exception e){
 
+        }
+
+        int get ;
+        int bytes;
 
 
         Manager manager = new Manager();
