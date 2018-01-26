@@ -21,11 +21,12 @@ public class Main {
             case 1:
                 //json
                 Manager.downloadUrl(LINK_JSON);
-
+                Manager.parseFile(LINK_JSON);
             break;
             case  2:
                 //xml
                 Manager.downloadUrl(LINK_XML);
+                Manager.parseFile(LINK_XML);
             break;
             default:
                 System.out.println("Не правильно выбран формат.");

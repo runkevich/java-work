@@ -26,13 +26,13 @@ public class DownloaderData {
                 File file = null;
                 Pattern patternXml = Pattern.compile("(.)\\.xml$");
                 Matcher matcher = patternXml.matcher(LINK);
-                if (matcher.find()){
+                if (matcher.find()) {
                     file = new File("FirstFile.xml");
                 }
 
                 Pattern patternJson = Pattern.compile("(.)\\.json$");
                 Matcher matcher1 = patternJson.matcher(LINK);
-                if (matcher1.find()){
+                if (matcher1.find()) {
                     file = new File("FirstFile.json");
                 }
                 fileOutputStream = new FileOutputStream(file);

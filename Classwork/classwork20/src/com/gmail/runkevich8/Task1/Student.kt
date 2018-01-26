@@ -12,6 +12,4 @@ object Student {//Singletone
     set(value) {
 
     }
-
-
 }

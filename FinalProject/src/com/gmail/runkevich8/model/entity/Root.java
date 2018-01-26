@@ -8,7 +8,7 @@ public class Root {
 
     private String name;
     private Date date;
-   private List<Schedule> schedules;
+    private List<Schedule> schedules;
 
     public String getName() {
         return name;

@@ -8,23 +8,23 @@ public class Manager {
 
     private static Manager instance;
 
-    private Manager(){
+    private Manager() {
 
     }
-    public static Manager getInstance(){
-        if (instance == null){
+
+    public static Manager getInstance() {
+        if (instance == null) {
             instance = new Manager();
         }
         return instance;
     }
 
-    public static void downloadUrl(String url){
+    public static void downloadUrl(String url) {
         new DownloaderData().download(url);
-        parseFile(url);
     }
 
-    public static void parseFile(String url){
-        if (url.contains(".xml")){
+    public static void parseFile(String url) {
+        if (url.contains(".xml")) {
             new ParseXML(url);
         } else new ParseJson(url);
     }

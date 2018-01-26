@@ -21,6 +21,9 @@ public class DateGsonConverter implements JsonDeserializer<Date> {
 
     @Override
     public Date deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+
+        //__________________
+
         for (String format: formats){ // не нужен,если один формат даты
             try{
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format,
@@ -34,6 +37,10 @@ public class DateGsonConverter implements JsonDeserializer<Date> {
             }
 
         }
+
+
+
+        //_________в статик метод оформить
 
         return null;
     }

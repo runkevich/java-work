@@ -36,10 +36,6 @@ public class ParseJson implements ParseData {
 
     @Override
     public boolean checkFile(String url) {
-        if ((new File(url)).exists()) {
-            return true;
-        } else {
-        return false;
-    }
+        return (new File(url)).exists();
     }
 }
