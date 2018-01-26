@@ -1,5 +1,6 @@
 package com.gmail.runkevich8.model.entity;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,8 +8,7 @@ public class Root {
 
     private String name;
     private Date date;
-
-    List<Shedule> shedules;
+   private List<Schedule> schedules;
 
     public String getName() {
         return name;
@@ -26,12 +26,12 @@ public class Root {
         this.date = date;
     }
 
-    public List<Shedule> getShedules() {
-        return shedules;
+    public List<Schedule> getSchedules() {
+        return schedules;
     }
 
-    public void setShedules(List<Shedule> shedules) {
-        this.shedules = shedules;
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 
     @Override
@@ -43,14 +43,14 @@ public class Root {
 
         if (name != null ? !name.equals(root.name) : root.name != null) return false;
         if (date != null ? !date.equals(root.date) : root.date != null) return false;
-        return shedules != null ? shedules.equals(root.shedules) : root.shedules == null;
+        return schedules != null ? schedules.equals(root.schedules) : root.schedules == null;
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (shedules != null ? shedules.hashCode() : 0);
+        result = 31 * result + (schedules != null ? schedules.hashCode() : 0);
         return result;
     }
 
@@ -59,7 +59,7 @@ public class Root {
         return "Root{" +
                 "name='" + name + '\'' +
                 ", date=" + date +
-                ", shedules=" + shedules +
+                ", schedules=" + schedules +
                 '}';
     }
 }

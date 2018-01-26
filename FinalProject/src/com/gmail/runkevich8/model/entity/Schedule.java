@@ -3,7 +3,7 @@ package com.gmail.runkevich8.model.entity;
 import java.util.Date;
 import java.util.List;
 
-public class Shedule {
+public class Schedule {
 
     private int id;
     private int busNumber;
@@ -83,17 +83,18 @@ public class Shedule {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Shedule shedule = (Shedule) o;
+        Schedule schedule = (Schedule) o;
 
-        if (id != shedule.id) return false;
-        if (busNumber != shedule.busNumber) return false;
-        if (price != shedule.price) return false;
-        if (locationStart != null ? !locationStart.equals(shedule.locationStart) : shedule.locationStart != null)
+        if (id != schedule.id) return false;
+        if (busNumber != schedule.busNumber) return false;
+        if (price != schedule.price) return false;
+        if (locationStart != null ? !locationStart.equals(schedule.locationStart) : schedule.locationStart != null)
             return false;
-        if (locationEnd != null ? !locationEnd.equals(shedule.locationEnd) : shedule.locationEnd != null) return false;
-        if (dateStart != null ? !dateStart.equals(shedule.dateStart) : shedule.dateStart != null) return false;
-        if (dateEnd != null ? !dateEnd.equals(shedule.dateEnd) : shedule.dateEnd != null) return false;
-        return waypoints != null ? waypoints.equals(shedule.waypoints) : shedule.waypoints == null;
+        if (locationEnd != null ? !locationEnd.equals(schedule.locationEnd) : schedule.locationEnd != null)
+            return false;
+        if (dateStart != null ? !dateStart.equals(schedule.dateStart) : schedule.dateStart != null) return false;
+        if (dateEnd != null ? !dateEnd.equals(schedule.dateEnd) : schedule.dateEnd != null) return false;
+        return waypoints != null ? waypoints.equals(schedule.waypoints) : schedule.waypoints == null;
     }
 
     @Override
@@ -111,7 +112,7 @@ public class Shedule {
 
     @Override
     public String toString() {
-        return "Shedule{" +
+        return "Schedule{" +
                 "id=" + id +
                 ", busNumber=" + busNumber +
                 ", locationStart='" + locationStart + '\'' +

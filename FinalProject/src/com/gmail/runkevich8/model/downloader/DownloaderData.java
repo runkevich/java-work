@@ -38,12 +38,10 @@ public class DownloaderData {
                 fileOutputStream = new FileOutputStream(file);
 //_______________________________________________________________________
                 int byteRead = -1;
-                byte[] buffer = new byte[2048]; // то , куда скачивается наш сайт 2 Мб
+                byte[] buffer = new byte[2048];
                 while ((byteRead = inputStream.read(buffer)) != -1) {
                     fileOutputStream.write(buffer, 0, byteRead);
                 }
-
-                //parseXml(); // после скачивание переходим к parse файла
 
             } else {
                 System.out.println("Данные не найдены, response code = " + responseCode);

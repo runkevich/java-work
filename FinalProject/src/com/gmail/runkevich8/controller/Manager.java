@@ -1,6 +1,8 @@
 package com.gmail.runkevich8.controller;
 
 import com.gmail.runkevich8.model.downloader.DownloaderData;
+import com.gmail.runkevich8.model.parse.ParseJson;
+import com.gmail.runkevich8.model.parse.ParseXML;
 
 public class Manager {
 
@@ -18,5 +20,13 @@ public class Manager {
 
     public static void downloadUrl(String url){
         new DownloaderData().download(url);
+        parseFile(url);
     }
+
+    public static void parseFile(String url){
+        if (url.contains(".xml")){
+            new ParseXML(url);
+        } else new ParseJson(url);
+    }
+
 }

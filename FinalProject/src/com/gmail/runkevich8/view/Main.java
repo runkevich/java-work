@@ -21,6 +21,7 @@ public class Main {
             case 1:
                 //json
                 Manager.downloadUrl(LINK_JSON);
+
             break;
             case  2:
                 //xml
