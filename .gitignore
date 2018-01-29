@@ -3,6 +3,7 @@
 .idea/
 .out/
 *.iml
+.html
 
 # Log file
 *.log
