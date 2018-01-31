@@ -1,42 +1,39 @@
-package com.gmail.runkevich8.model.downloader;
+package com.gmail.runkevich8.downloader;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class DownloaderData {
+public class DownloaderData implements Runnable{
 
     private static InputStream inputStream = null;
     private static FileOutputStream fileOutputStream = null;
+    private Object object;
+    private String link;
+    private String fileName;
 
-    public void download(String LINK) {
+    public DownloaderData(String link, String fileName, Object object) {
+        this.link = link;
+        this.fileName = fileName;
+        this.object = object;
+    }
+
+    public boolean download() {
         try {
-            URL url = new URL(LINK);
+            URL url = new URL(link);
             HttpURLConnection httpURLConnection =
                     (HttpURLConnection) url.openConnection();
 
             int responseCode = httpURLConnection.getResponseCode();
 
-            if (responseCode == HttpURLConnection.HTTP_OK) {// upload
+            if (responseCode == HttpURLConnection.HTTP_OK) {
 
                 inputStream = httpURLConnection.getInputStream();
-//_________________modernize___________________________________________
-                File file = null;
-                Pattern patternXml = Pattern.compile("(.)\\.xml$");
-                Matcher matcher = patternXml.matcher(LINK);
-                if (matcher.find()) {
-                    file = new File("FirstFile.xml");
-                }
 
-                Pattern patternJson = Pattern.compile("(.)\\.json$");
-                Matcher matcher1 = patternJson.matcher(LINK);
-                if (matcher1.find()) {
-                    file = new File("FirstFile.json");
-                }
+                File file = new File(fileName);
+
                 fileOutputStream = new FileOutputStream(file);
-//_______________________________________________________________________
+
                 int byteRead = -1;
                 byte[] buffer = new byte[2048];
                 while ((byteRead = inputStream.read(buffer)) != -1) {
@@ -48,8 +45,9 @@ public class DownloaderData {
             }
 
         } catch (Exception e) {
-            System.out.println("Невозможно скачать файл");
-        } finally {
+            System.out.println("Невозможно скачать файл, возможно нет интернета.");
+        }
+        finally {
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -65,6 +63,24 @@ public class DownloaderData {
                 }
             }
         }
+        return true;
+    }
+
+    @Override
+    public void run() {
+
+        download();
+        synchronized (object) {
+
+            object.notify();
+        }
+//        try {
+//            synchronized (object) {
+//                object.wait();
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }
 

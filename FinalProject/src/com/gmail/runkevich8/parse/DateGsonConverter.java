@@ -1,4 +1,4 @@
-package com.gmail.runkevich8.model.parse;
+package com.gmail.runkevich8.parse;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -7,6 +7,7 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -17,7 +18,6 @@ public class DateGsonConverter implements JsonDeserializer<Date> {
             "yyyy-MM-dd HH:mm" ,
             "yyyy-MM-dd"
     };
-
 
     @Override
     public Date deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
@@ -38,10 +38,12 @@ public class DateGsonConverter implements JsonDeserializer<Date> {
 
         }
 
-
-
         //_________в статик метод оформить
 
         return null;
+    }
+
+    public void parseDate(String format){
+        //_________в статик метод оформить
     }
 }

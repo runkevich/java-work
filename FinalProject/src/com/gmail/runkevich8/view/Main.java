@@ -6,9 +6,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final String LINK_JSON = "http://kiparo.ru/t/bus_schedule.json";
-    private static final String LINK_XML = "http://kiparo.ru/t/bus_schedule.xml";
-
     public static void main(String[] args) {
 
         Manager.getInstance();
@@ -17,20 +14,8 @@ public class Main {
         System.out.println("В каком формате хотите скачать файл 1 - json; 2 - xml");
         Scanner scanner = new Scanner(System.in);
         int j = scanner.nextInt();
-        switch (j){
-            case 1:
-                //json
-                Manager.downloadUrl(LINK_JSON);
-                Manager.parseFile(LINK_JSON);
-            break;
-            case  2:
-                //xml
-                Manager.downloadUrl(LINK_XML);
-                Manager.parseFile(LINK_XML);
-            break;
-            default:
-                System.out.println("Не правильно выбран формат.");
-        }
+
+        Manager.downloadUrl(j);
 
         System.out.println("Выберите функцию для дальнейшей работы:\nВведите: 1 - Просмотр полного расписания; 2 - Произвести поиск; 3 - Отсортировать данные");
         int i = scanner.nextInt();
@@ -38,48 +23,20 @@ public class Main {
         switch (i) {
             case 1:
                 //метода для показа данных в удобночитаемом виде
+                Manager.showSchedule();
                 break;
             case 2:
-                System.out.println("Выберите поиск: 1 - по номеру автобуса; 2 - по времени отправления; 3 - по цене");
+                System.out.println("Выберите поиск: 1 - по номеру автобуса; 2 - по времени отправления; 3 - по цене; 4 - узнать длительность поездки");
                 int a = scanner.nextInt();
-
-                switch (a) {
-                    case 1:
-
-                        //nomer bus
-                        break;
-                    case 2:
-
-                        //vremeni
-                        break;
-                    case 3:
-
-                        //price
-                        break;
-                    default:
-                        System.out.println("Не правильно выбран поиск");
-                }
+                Manager.search(a);
                 break;
             case 3:
-
                 System.out.println("Выберите сортировку: 1 - по цене; 2 - названию города");
                 int b = scanner.nextInt();
-                switch (b) {
-                    case 1:
-
-                        //price
-                        break;
-                    case 2:
-
-                        //name town
-                        break;
-                    default:
-                        System.out.println("Не правильно выбран поиск");
-                }
+                Manager.sort(b);
                 break;
             default:
                 System.out.println("Неправильно ввыбрали операцию.");
         }
     }
-
 }

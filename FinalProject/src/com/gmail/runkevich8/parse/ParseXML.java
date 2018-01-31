@@ -1,7 +1,7 @@
-package com.gmail.runkevich8.model.parse;
+package com.gmail.runkevich8.parse;
 
-import com.gmail.runkevich8.model.entity.Root;
-import com.gmail.runkevich8.model.entity.Schedule;
+import com.gmail.runkevich8.entity.Root;
+import com.gmail.runkevich8.entity.Schedule;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,12 +18,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ParseXML implements ParseData {
+public class ParseXML extends Thread implements ParseData{
 
     Document dom;
-    public ParseXML(String url) {
+    private Object object;
+    String fileName;
 
-        if (checkFile(url)){
+    public ParseXML(String fileName, Object object){
+        this.fileName = fileName;
+        this.object = object;
+    }
+
+    public Root parse() {
+
+      //  if (checkFile(url)){
             Root root = new Root();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newDefaultInstance();
@@ -34,7 +42,7 @@ public class ParseXML implements ParseData {
             e.printStackTrace();
         }
         try {
-            dom = builder.parse("FirstFile.xml");
+            dom = builder.parse(fileName);
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -99,7 +107,6 @@ public class ParseXML implements ParseData {
                     e.printStackTrace();
                 }
 
-
                 String sId = element.getElementsByTagName("id").item(0).getTextContent();
                 int id = Integer.valueOf(sId);
 
@@ -116,7 +123,6 @@ public class ParseXML implements ParseData {
                     waypointsList.add(waypointsElement.item(j).getTextContent());
                 }
 
-
                 Schedule schedule = new Schedule();
                 schedule.setBusNumber(busNumber);
                 schedule.setDateEnd(dateEnd);
@@ -129,25 +135,22 @@ public class ParseXML implements ParseData {
 
                 schedules.add(schedule);
             }
-            root.setSchedules(schedules);
-            System.out.println(root.toString());
-        }
+         root.setSchedule(schedules);
+         return root;
     }
 
     @Override
-    public boolean checkFile(String url) {
+    public void run() {
         try {
+            synchronized (object) {
+                object.wait();
+            }
 
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newDefaultInstance();
-            DocumentBuilder builder = dbf.newDocumentBuilder();
-            dom = builder.parse("FirstFile.xml");
-
-        } catch (Exception e) {
-            System.out.println("Невозможно открыть xml error = " + e.toString());
+        } catch (InterruptedException e) {
         }
-        return true;
+        parse();
+        synchronized (object) {
+            object.notify();
+        }
     }
-
-
-
 }
