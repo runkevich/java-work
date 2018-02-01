@@ -5,11 +5,9 @@ import java.util.*;
 
 public class Root {
 
-
     private String name;
     private Date date;
     private List<Schedule> schedule;
-
 
     @Override
     public boolean equals(Object o) {

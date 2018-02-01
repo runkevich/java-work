@@ -7,6 +7,7 @@ import com.gmail.runkevich8.downloader.DownloaderData;
 import com.gmail.runkevich8.entity.Root;
 
 
+import com.gmail.runkevich8.entity.Schedule;
 import com.gmail.runkevich8.parse.ParseJson;
 import com.gmail.runkevich8.parse.ParseXML;
 
@@ -98,6 +99,7 @@ public class Manager {
         }
     }
 
+    //Выбор сортировки
     public static void sort(int b) {
         switch (b) {
             case 1:
