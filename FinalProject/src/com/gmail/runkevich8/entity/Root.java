@@ -59,32 +59,36 @@ public class Root {
     }
 
 
+
+    //Поиск автобуса по введенному номеру
     public void findNumberBus(int number) {
+
         boolean finder = false;
-        for (int j = 0; j < getSchedule().size(); j++) {
-            if (schedule.get(j).getBusNumber() == number) {
+        for (Schedule s : schedule) {
+            if (s.getBusNumber() == number) {
                 finder = true;
-                System.out.println(schedule.get(j));
+                System.out.println(s);
             }
-        }
-        if (!finder) {
+        } if (!finder) {
+            System.out.println("Автобусов с таким номером не найдено.");
+       }
+    }
+
+    //поиск по цене поездки
+    public void findPrice(int price) {
+
+        boolean finder = false;
+        for (Schedule s : schedule) {
+            if (s.getPrice() == price) {
+                finder = true;
+                System.out.println(s);
+            }
+        } if (!finder) {
             System.out.println("Автобусов с таким номером не найдено.");
         }
     }
 
-    public void findPrice(int price) {
-        boolean finder = false;
-        for (int j = 0; j < getSchedule().size(); j++) {
-            if (schedule.get(j).getPrice() == price) {
-                finder = true;
-                System.out.println(schedule.get(j));
-            }
-        }
-        if (!finder) {
-            System.out.println("Автобусов с такой стоимость нет.");
-        }
-    }
-
+    //поиск по дате отправления
     public void findDateStart(String dateStart) {
         boolean finder = false;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -101,9 +105,9 @@ public class Root {
         }
     }
 
-
+    //информация  длительности поездки
     public void findCurrent() {
-        
+
         GregorianCalendar calendarTemp = new GregorianCalendar();
 
         long averageTimeEnd = 0;
@@ -116,7 +120,6 @@ public class Root {
             System.out.println(averageTime);
         }
     }
-
 
     @Override
     public String toString() {
