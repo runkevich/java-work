@@ -23,8 +23,6 @@
 *.rar
 # Ignore (generated) html files,
 *.html
-# Ignore (generated) xml files,
-*.xml
 # Ignore (generated) json files,
 *.json
 
