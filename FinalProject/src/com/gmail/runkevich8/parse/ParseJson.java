@@ -26,7 +26,6 @@ public class ParseJson extends Thread implements ParseData {
 
         try {
 
-           // FileReader fileReader = new FileReader(fileName);
 
             BufferedReader bufferedReader =
                     new BufferedReader(new FileReader(fileName));

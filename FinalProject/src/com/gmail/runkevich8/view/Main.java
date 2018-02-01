@@ -22,6 +22,7 @@ public class Main {
 
         switch (i) {
             case 1:
+
                 //метода для показа данных в удобночитаемом виде
                 Manager.showSchedule();
                 break;

@@ -103,10 +103,7 @@ public class Root {
 
 
     public void findCurrent() {
-
-        int year, month;
-
-        GregorianCalendar currentDate = new GregorianCalendar();
+        
         GregorianCalendar calendarTemp = new GregorianCalendar();
 
         long averageTimeEnd = 0;
@@ -116,17 +113,6 @@ public class Root {
             averageTimeStart = schedule.get(j).getDateStart().getTime();
             long averageTime = averageTimeEnd - averageTimeStart;
             calendarTemp.setTime(new Date(averageTime));
-//
-//            year = currentDate.get(GregorianCalendar.YEAR) - calendarTemp.get(GregorianCalendar.YEAR);
-//
-//            if (currentDate.get(GregorianCalendar.DAY_OF_YEAR) < calendarTemp.get(GregorianCalendar.DAY_OF_YEAR)) {
-//                year--;
-//                month = 12 - calendarTemp.get(GregorianCalendar.MONTH) + currentDate.get(GregorianCalendar.MONTH);
-//            } else {
-//                month = currentDate.get(GregorianCalendar.MONTH) - calendarTemp.get(GregorianCalendar.MONTH);
-//            }
-//
-//            String answer = (year + " years " + month + " month " );
             System.out.println(averageTime);
         }
     }

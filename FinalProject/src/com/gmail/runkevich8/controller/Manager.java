@@ -43,6 +43,7 @@ public class Manager {
         String fileName = null;
         switch (j){
             case 1:
+
                 //json
                 link = LINK_JSON;
                 fileName = FILE_JSON;

@@ -31,9 +31,8 @@ public class ParseXML extends Thread implements ParseData{
 
     public Root parse() {
 
-      //  if (checkFile(url)){
             Root root = new Root();
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newDefaultInstance();
         DocumentBuilder builder = null;
         try {
@@ -51,7 +50,7 @@ public class ParseXML extends Thread implements ParseData{
 
         Element rootElement = dom.getDocumentElement();
 
-            //получаем элемент по названию, в даннном случае вытягиваем тег name
+            //получаем элемент по названию, в даннном случае вытягиваем тег
             NodeList nameNodeList = rootElement.getElementsByTagName("name");
             NodeList dateNodeList = rootElement.getElementsByTagName("date");
 
