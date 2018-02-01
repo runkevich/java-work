@@ -1,8 +1,5 @@
 package com.gmail.runkevich8.entity;
 
-
-import com.gmail.runkevich8.parse.DateGsonConverter;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -12,7 +9,7 @@ public class Root {
     private String name;
     private Date date;
     private List<Schedule> schedule;
-   // Schedule schedule;
+
 
     @Override
     public boolean equals(Object o) {
@@ -58,8 +55,6 @@ public class Root {
         this.schedule = schedule;
     }
 
-
-
     //Поиск автобуса по введенному номеру
     public void findNumberBus(int number) {
 
@@ -74,7 +69,7 @@ public class Root {
        }
     }
 
-    //поиск по цене поездки
+    //поиск по цене поездки c использованием iterator
     public void findPrice(int price) {
 
         boolean finder = false;
