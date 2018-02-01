@@ -20,9 +20,9 @@ import java.util.List;
 
 public class ParseXML extends Thread implements ParseData{
 
-    Document dom;
+    private Document dom;
     private Object object;
-    String fileName;
+    private String fileName;
 
     public ParseXML(String fileName, Object object){
         this.fileName = fileName;

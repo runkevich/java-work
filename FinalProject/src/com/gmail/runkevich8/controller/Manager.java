@@ -6,9 +6,10 @@ import com.gmail.runkevich8.comparators.SortByPrice;
 import com.gmail.runkevich8.downloader.DownloaderData;
 import com.gmail.runkevich8.entity.Root;
 
-import com.gmail.runkevich8.parse.ParseData;
+
 import com.gmail.runkevich8.parse.ParseJson;
 import com.gmail.runkevich8.parse.ParseXML;
+
 
 import java.util.*;
 
@@ -19,7 +20,8 @@ public class Manager {
 
     private static final String FILE_JSON = "FirstFile.json";
     private static final String FILE_XML = "FirstFile.xml";
-    private static  Root  root;
+    private static Root root;
+
     private static final Object object = new Object();
 
     private static Manager instance;
@@ -41,7 +43,6 @@ public class Manager {
         String fileName = null;
         switch (j){
             case 1:
-
                 //json
                 link = LINK_JSON;
                 fileName = FILE_JSON;
@@ -58,24 +59,28 @@ public class Manager {
                 System.out.println("Не правильно выбран формат.");
                 return;
         }
-        DownloaderData downloader = new DownloaderData(link, fileName,  object);
-        Thread downloadThread = new Thread(downloader);
-        downloadThread.start();
 
-       Thread parseThread;
         if (fileName.contains(".xml")) {
+            DownloaderData downloader = new DownloaderData(link, fileName,  object);
+            Thread downloadThread = new Thread(downloader);
+            downloadThread.start();
 
             ParseXML parseXML = new ParseXML(fileName, object);
+            Thread parseThread = new Thread(parseXML);
+            parseThread.start();
             root = parseXML.parse();
-            parseThread = new Thread(parseXML);
 
         } else {
+            DownloaderData downloader = new DownloaderData(link, fileName,  object);
+            Thread downloadThread = new Thread(downloader);
+            downloadThread.start();
+
             ParseJson parseJson = new ParseJson(fileName,object);
+            Thread  parseThread = new Thread(parseJson);
             root = parseJson.parse();
-            parseThread = new Thread(parseJson);
+            parseThread.start();
 
         }
-        parseThread.start();
     }
 
     public static void showSchedule(){
@@ -151,5 +156,4 @@ public class Manager {
                 System.out.println("Не правильно выбран поиск");
         }
     }
-
 }

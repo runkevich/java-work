@@ -74,13 +74,13 @@ public class DownloaderData implements Runnable{
 
             object.notify();
         }
-//        try {
-//            synchronized (object) {
-//                object.wait();
-//            }
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            synchronized (object) {
+                object.wait();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 

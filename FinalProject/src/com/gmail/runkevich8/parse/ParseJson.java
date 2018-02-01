@@ -15,6 +15,7 @@ public class ParseJson extends Thread implements ParseData {
 
     private Object object;
     String fileName;
+    Root root;
 
     public ParseJson(String fileName, Object object){
         this.fileName = fileName;
@@ -22,13 +23,13 @@ public class ParseJson extends Thread implements ParseData {
     }
 
     public Root parse(){
-        Root root;
+
         try {
 
-            //FileReader fileReader = new FileReader(fileName);
+           // FileReader fileReader = new FileReader(fileName);
 
             BufferedReader bufferedReader =
-                    new BufferedReader(new FileReader("FirstFile.json"));
+                    new BufferedReader(new FileReader(fileName));
 
             GsonBuilder builder = new GsonBuilder().
                     registerTypeAdapter(Date.class, new DateGsonConverter());
@@ -43,6 +44,7 @@ public class ParseJson extends Thread implements ParseData {
         return null;
     }
 
+
     @Override
     public void run() {
         try {
@@ -52,9 +54,10 @@ public class ParseJson extends Thread implements ParseData {
 
             } catch (InterruptedException e) {
         }
+
+        synchronized (object) {
+            object.notify();
+        }
         parse();
-//        synchronized (object) {
-//            object.notify();
-//        }
     }
 }
