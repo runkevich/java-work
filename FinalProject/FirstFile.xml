@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <date>2015-04-25 12:35:00 +0300</date>
+   <name>Super duper Bus schedule</name>
+   <schedule>
+      <element>
+         <busNumber>45</busNumber>
+         <dateEnd>2015-04-25 17:35:00 +0300</dateEnd>
+         <dateStart>2015-04-25 12:35:00 +0300</dateStart>
+         <id>0</id>
+         <locationEnd>Brest</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>200</price>
+         <waypoints>
+            <element>Baranovichi, BY</element>
+         </waypoints>
+      </element>
+      <element>
+         <busNumber>10</busNumber>
+         <dateEnd>2015-05-02 17:35:00 +0200</dateEnd>
+         <dateStart>2015-05-01 12:35:00 +0300</dateStart>
+         <id>1</id>
+         <locationEnd>Berlin</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>5329</price>
+         <waypoints>
+            <element>Brest, BY</element>
+            <element>Warsaw, PL</element>
+            <element>Wroclaw, PL</element>
+         </waypoints>
+      </element>
+      <element>
+         <busNumber>356</busNumber>
+         <dateEnd>2015-03-10 23:35:00 +0300</dateEnd>
+         <dateStart>2015-03-10 22:00:00 +0300</dateStart>
+         <id>2</id>
+         <locationEnd>Grodno</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>1244</price>
+         <waypoints>
+            <element>Lida, BY</element>
+         </waypoints>
+      </element>
+      <element>
+         <busNumber>15</busNumber>
+         <dateEnd>2015-05-12 18:30:00 +0300</dateEnd>
+         <dateStart>2015-05-12 15:00:00 +0300</dateStart>
+         <id>3</id>
+         <locationEnd>Vitebsk</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>124</price>
+         <waypoints>
+            <element>Baranovichi, BY</element>
+         </waypoints>
+      </element>
+      <element>
+         <busNumber>234</busNumber>
+         <dateEnd>2015-03-02 17:35:00 +0300</dateEnd>
+         <dateStart>2015-03-02 14:20:00 +0300</dateStart>
+         <id>4</id>
+         <locationEnd>Gomel</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>23534</price>
+         <waypoints>
+            <element>Mogilev, BY</element>
+         </waypoints>
+      </element>
+      <element>
+         <busNumber>234</busNumber>
+         <dateEnd>2015-05-02 20:50:00 +0300</dateEnd>
+         <dateStart>2015-05-01 12:54:00 +0300</dateStart>
+         <id>5</id>
+         <locationEnd>Moscow</locationEnd>
+         <locationStart>Minsk</locationStart>
+         <price>2134</price>
+         <waypoints>
+            <element>Orsha, BY</element>
+         </waypoints>
+      </element>
+   </schedule>
+</root>

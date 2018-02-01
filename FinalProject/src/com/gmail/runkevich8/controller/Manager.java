@@ -6,8 +6,6 @@ import com.gmail.runkevich8.comparators.SortByPrice;
 import com.gmail.runkevich8.downloader.DownloaderData;
 import com.gmail.runkevich8.entity.Root;
 
-
-import com.gmail.runkevich8.entity.Schedule;
 import com.gmail.runkevich8.parse.ParseJson;
 import com.gmail.runkevich8.parse.ParseXML;
 
